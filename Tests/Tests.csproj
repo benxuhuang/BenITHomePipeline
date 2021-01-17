@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BenITHome.csproj" />
+    <ProjectReference Include="..\BenITHome\BenITHome.csproj" />
   </ItemGroup>
 
 </Project>
