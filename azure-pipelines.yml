@@ -65,7 +65,7 @@ steps:
   inputs:
     azureSubscription: '免費試用版(c598e038-deed-49f3-bbbe-a9bcfd56ea1f)'
     appType: 'webAppLinux'
-    appName: 'contosowebapppjzohlzgqaho4'
+    appName: 'contosowebappjkuang2kxfn5o'
     package: '$(System.DefaultWorkingDirectory)/$(buildConfiguration).zip'
     runtimeStack: 'DOTNET|5.0'
     startUpCommand: 'dotnet BenITHome.dll'
