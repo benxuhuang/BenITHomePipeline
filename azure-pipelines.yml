@@ -37,21 +37,6 @@ steps:
     zipAfterPublish: True
   displayName: 'dotnet publish $(buildConfiguration)'
 
-- task: AzureResourceManagerTemplateDeployment@3
-  inputs:
-    deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: '免費試用版(c598e038-deed-49f3-bbbe-a9bcfd56ea1f)'
-    subscriptionId: 'c598e038-deed-49f3-bbbe-a9bcfd56ea1f'
-    action: 'Create Or Update Resource Group'
-    resourceGroupName: 'myResourceGroup'
-    location: 'East Asia'
-    templateLocation: 'Linked artifact'
-    csmFile: 'azuredeploy.json'
-    csmParametersFile: 'azuredeploy.parameters.prod.json'
-    deploymentMode: 'Incremental'
-    deploymentName: 'DeployPipelineTemplate'
-    displayName: 'Azure Resource Manager'
-
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/BenITHome/bin/Release/net5.0/'
@@ -60,6 +45,21 @@ steps:
     archiveFile: '$(System.DefaultWorkingDirectory)/$(buildConfiguration).zip'
     replaceExistingArchive: true
   displayName: 'ArchiveFile $(buildConfiguration)'
+
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: '免費試用版(c598e038-deed-49f3-bbbe-a9bcfd56ea1f)'
+    subscriptionId: 'c598e038-deed-49f3-bbbe-a9bcfd56ea1f'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'AzurePipelineRG'
+    location: 'East Asia'
+    templateLocation: 'Linked artifact'
+    csmFile: 'azuredeploy.json'
+    csmParametersFile: 'azuredeploy.parameters.prod.json'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'
+    displayName: 'Azure Resource Manager'
 
 - task: AzureWebApp@1
   inputs:
