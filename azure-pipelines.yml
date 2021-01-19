@@ -52,7 +52,7 @@ steps:
     azureResourceManagerConnection: '免費試用版(c598e038-deed-49f3-bbbe-a9bcfd56ea1f)'
     subscriptionId: 'c598e038-deed-49f3-bbbe-a9bcfd56ea1f'
     action: 'Create Or Update Resource Group'
-    resourceGroupName: 'BenITHomeRG'
+    resourceGroupName: 'AzurePipelineRG'
     location: 'East Asia'
     templateLocation: 'Linked artifact'
     csmFile: 'azuredeploy.json'
